@@ -28,4 +28,9 @@ class TodoController extends ChangeNotifier {
     databaseHelper.insertTodo(todo);
     fetchTodos();
   }
+
+  void updateTodo(Todo todo) async {
+    await databaseHelper.updateTodo(todo);
+    fetchTodos();
+  }
 }
