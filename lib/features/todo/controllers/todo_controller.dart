@@ -32,13 +32,20 @@ class TodoController extends ChangeNotifier {
   }
 
   addTodo(String newTodoTitle) {
-    final todo = Todo(title: titleController.text, date: DateTime.now());
+    final todo = Todo(
+      title: titleController.text,
+      date: DateTime.now(),
+      colorIndex: _selectedColorIndex,
+    );
     databaseHelper.insertTodo(todo);
+    _selectedColorIndex = 0;
+
     fetchTodos();
   }
 
   void updateTodo(Todo todo) async {
     await databaseHelper.updateTodo(todo);
+    _selectedColorIndex = 0;
     fetchTodos();
   }
 

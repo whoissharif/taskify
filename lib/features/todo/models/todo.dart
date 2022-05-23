@@ -3,8 +3,15 @@ class Todo {
   final String title;
   final DateTime date;
   bool isDone;
+  final int colorIndex;
 
-  Todo({this.id, required this.title, this.isDone = false, required this.date});
+  Todo({
+    this.id,
+    required this.title,
+    this.isDone = false,
+    required this.date,
+    required this.colorIndex,
+  });
 
   void toggleDone() {
     isDone = !isDone;
@@ -15,6 +22,7 @@ class Todo {
         title: json['title'],
         date: DateTime.parse(json['date']),
         isDone: json['iscomplete'] == 1 ? true : false,
+        colorIndex: json['colorIndex'],
       );
 
   Map<String, dynamic> toMap() {
@@ -23,6 +31,7 @@ class Todo {
       'title': title,
       'date': date.toIso8601String(),
       'iscomplete': isDone,
+      'colorIndex': colorIndex,
     };
   }
 }

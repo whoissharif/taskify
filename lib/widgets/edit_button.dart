@@ -25,6 +25,7 @@ class EditButton extends StatelessWidget {
             //we can keep the previous date here but I am updating the date as the todo edited
             date: DateTime.now(),
             isDone: todo.isDone,
+            colorIndex: todoData.selectedColorIndex,
           ));
           Navigator.of(context).pop();
         },

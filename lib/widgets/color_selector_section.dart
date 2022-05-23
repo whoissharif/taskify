@@ -6,9 +6,11 @@ class ColorSelectorSection extends StatelessWidget {
   const ColorSelectorSection({
     Key? key,
     required this.todoData,
+    required this.selectedColorIndex,
   }) : super(key: key);
 
   final TodoController todoData;
+  final selectedColorIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class ColorSelectorSection extends StatelessWidget {
       children: todoData.todoColors.map((e) {
         var index = todoData.todoColors.indexOf(e);
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 3),
+          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3),
           child: GestureDetector(
             onTap: () {
               todoData.setSelectedColorIndex(index);
@@ -25,7 +27,7 @@ class ColorSelectorSection extends StatelessWidget {
               height: 30,
               width: 30,
               child: Center(
-                child: todoData.selectedColorIndex == index
+                child: selectedColorIndex == index
                     ? const Icon(
                         Icons.done,
                         size: 15,

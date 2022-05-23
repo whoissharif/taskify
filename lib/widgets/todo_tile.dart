@@ -34,9 +34,9 @@ class TodoTile extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        decoration: const BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+        decoration: BoxDecoration(
+          color: todoProvider.todoColors[todo.colorIndex],
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
         ),
         child: Row(
           children: [
@@ -49,30 +49,64 @@ class TodoTile extends StatelessWidget {
                     children: <Widget>[
                       todo.isDone
                           ? const Icon(
-                              Icons.done,
+                              Icons.done_all,
                               color: Colors.white,
                               size: 15,
                             )
                           : const Icon(
-                              Icons.add_circle_outline,
+                              Icons.more_horiz,
                               color: Colors.white,
                               size: 15,
                             ),
                       const SizedBox(width: 8),
-                      Text(
-                        todo.isDone ? 'Completed' : 'Need To Do',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                        ),
-                      ),
+                      todo.isDone
+                          ? Container(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 5),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors.white),
+                              child: Text(
+                                'Completed',
+                                style: TextStyle(
+                                  color:
+                                      todoProvider.todoColors[todo.colorIndex],
+                                  fontSize: 12,
+                                ),
+                              ),
+                            )
+                          : const Text(
+                              'Ongoing',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                              ),
+                            ),
                     ],
+                  ),
+                  const Divider(
+                    color: Colors.white,
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   Text(
                     todo.title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   Text(
                     DateFormat('dd/MM/yyyy hh:mm a').format(todo.date),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                    ),
                   )
                 ],
               ),

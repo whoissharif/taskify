@@ -28,7 +28,8 @@ class DatabaseHelper {
           id INTEGER PRIMARY KEY,
           title TEXT,
           date TEXT,
-          iscomplete INTEGER
+          iscomplete INTEGER,
+          colorIndex INTEGER
       )
       ''');
   }
