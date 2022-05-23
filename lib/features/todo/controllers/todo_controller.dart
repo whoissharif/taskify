@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:taskify/utils/database_helper.dart';
 
 import '../models/todo.dart';
@@ -8,12 +8,20 @@ class TodoController extends ChangeNotifier {
   List<Todo> _todos = [];
   bool _isLoading = false;
   TextEditingController titleController = TextEditingController();
+  int _selectedColorIndex = 0;
 
   List<Todo> get todos => [..._todos];
 
   bool get isLoading => _isLoading;
 
   int get todoCount => _todos.length;
+
+  int get selectedColorIndex => _selectedColorIndex;
+
+  void setSelectedColorIndex(int val) {
+    _selectedColorIndex = val;
+    notifyListeners();
+  }
 
   fetchTodos() async {
     _isLoading = true;
@@ -34,7 +42,7 @@ class TodoController extends ChangeNotifier {
     fetchTodos();
   }
 
-  void toggleDone(Todo todo) async{
+  void toggleDone(Todo todo) async {
     todo.toggleDone();
     await databaseHelper.updateTodo(todo);
     notifyListeners();
@@ -44,4 +52,14 @@ class TodoController extends ChangeNotifier {
     databaseHelper.deleteTodo(id!);
     fetchTodos();
   }
+
+  List<Color> todoColors = [
+    Colors.green,
+    Colors.indigo,
+    Colors.blue,
+    Colors.purple,
+    Colors.blueGrey,
+    Colors.orangeAccent,
+    Colors.pink
+  ];
 }

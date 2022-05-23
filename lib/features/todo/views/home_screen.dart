@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:taskify/features/todo/controllers/todo_controller.dart';
@@ -80,7 +78,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   todoProvider.todoCount,
                   (index) {
                     Todo todo = todoProvider.todos[index];
-                    log(todo.isDone.toString());
                     return TodoTile(
                       todo: todo,
                       index: index,

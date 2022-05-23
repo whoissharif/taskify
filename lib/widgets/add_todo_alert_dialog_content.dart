@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:taskify/widgets/color_selector_section.dart';
 
 import '../features/todo/controllers/todo_controller.dart';
 
@@ -18,6 +19,7 @@ class AddTodoAlertDialogContent extends StatelessWidget {
           autofocus: true,
           controller: todoProvider.titleController,
         ),
+        ColorSelectorSection(todoData: todoProvider),
         ElevatedButton(
           onPressed: () {
             todoProvider.addTodo(todoProvider.titleController.text);

@@ -51,20 +51,19 @@ class TodoTile extends StatelessWidget {
                           ? const Icon(
                               Icons.done,
                               color: Colors.white,
+                              size: 15,
                             )
-                          : Container(
-                              height: 15,
-                              width: 15,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.white,
-                              ),
+                          : const Icon(
+                              Icons.add_circle_outline,
+                              color: Colors.white,
+                              size: 15,
                             ),
                       const SizedBox(width: 8),
                       Text(
                         todo.isDone ? 'Completed' : 'Need To Do',
                         style: const TextStyle(
                           color: Colors.white,
+                          fontSize: 12,
                         ),
                       ),
                     ],
@@ -84,7 +83,7 @@ class TodoTile extends StatelessWidget {
               child: PopupMenuButton(
                   icon: const Icon(
                     Icons.more_vert,
-                    // color: Colors.white,
+                    color: Colors.white,
                   ),
                   itemBuilder: (_) => <PopupMenuItem<String>>[
                         PopupMenuItem<String>(
