@@ -6,6 +6,31 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      TextField(
+                        autofocus: true,
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('Add Todo'),
+                      ),
+                    ],
+                  ),
+                );
+              });
+        },
+        child: Icon(Icons.add),
+      ),
       body: Container(
         decoration: BoxDecoration(
           color: Colors.grey[50],
