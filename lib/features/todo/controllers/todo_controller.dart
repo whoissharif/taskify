@@ -33,4 +33,15 @@ class TodoController extends ChangeNotifier {
     await databaseHelper.updateTodo(todo);
     fetchTodos();
   }
+
+  void toggleDone(Todo todo) async{
+    todo.toggleDone();
+    await databaseHelper.updateTodo(todo);
+    notifyListeners();
+  }
+
+  void deleteTodo(int? id) {
+    databaseHelper.deleteTodo(id!);
+    fetchTodos();
+  }
 }
