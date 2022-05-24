@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:taskify/features/onboarding/controllers/onboarding_controller.dart';
+import 'package:taskify/features/onboarding/views/onboarding_screen.dart';
 import 'package:taskify/features/todo/controllers/todo_controller.dart';
-import 'package:taskify/features/todo/views/home_screen.dart';
 import 'package:taskify/utils/colors.dart';
 
 void main() {
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<TodoController>(
           create: (context) => TodoController(),
         ),
+        ChangeNotifierProvider<OnboardingController>(
+          create: (context) => OnboardingController(),
+        ),
       ],
       child: MaterialApp(
         title: 'Taskify',
@@ -29,7 +33,7 @@ class MyApp extends StatelessWidget {
             Theme.of(context).textTheme,
           ),
         ),
-        home: const HomeScreen(),
+        home: const OnboardingScreen(),
       ),
     );
   }

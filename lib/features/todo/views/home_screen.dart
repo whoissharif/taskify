@@ -3,8 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:taskify/features/search/views/custom_search_deligate.dart';
 import 'package:taskify/features/todo/controllers/todo_controller.dart';
 import 'package:taskify/features/todo/models/todo.dart';
-import 'package:taskify/utils/colors.dart';
 import '../../../widgets/add_todo_alert_dialog_content.dart';
+import '../../../widgets/my_custom_app_bar.dart';
+import '../../../widgets/my_fab.dart';
 import '../../../widgets/no_task.dart';
 import '../../../widgets/todo_tile.dart';
 
@@ -27,68 +28,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var todoProvider = Provider.of<TodoController>(context, listen: true);
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          todoProvider.reset();
-          showDialog(
-              context: context,
-              builder: (context) {
-                return const AlertDialog(
-                  content: AddTodoAlertDialogContent(),
-                );
-              });
-        },
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: MyFab(todoProvider: todoProvider),
       body: Container(
         decoration: BoxDecoration(
           color: Colors.grey[50],
         ),
         child: CustomScrollView(
           slivers: <Widget>[
-            SliverAppBar(
-              floating: true,
-              pinned: true,
-              backgroundColor: Colors.white,
-              leading: IconButton(
-                onPressed: () {
-                  showSearch(
-                      context: context,
-                      delegate: CustomSearchDelegate(todoProvider));
-                },
-                icon: const Icon(
-                  Icons.search,
-                  color: Colors.red,
-                  size: 30,
-                ),
-              ),
-              flexibleSpace: FlexibleSpaceBar(
-                centerTitle: true,
-                title: const Text(
-                  'Taskify',
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                background: Stack(
-                  children: [
-                    Image.asset(
-                      'assets/images/bg-stars.png',
-                      width: MediaQuery.of(context).size.width,
-                      fit: BoxFit.cover,
-                    ),
-                    Positioned.fill(
-                      child: Image.asset(
-                        'assets/images/writing.png',
-                        width: MediaQuery.of(context).size.width,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              expandedHeight: 200,
-            ),
+            MyCustomAppBar(todoProvider: todoProvider),
             todoProvider.isLoading
                 ? const SliverToBoxAdapter(
                     child: Padding(
