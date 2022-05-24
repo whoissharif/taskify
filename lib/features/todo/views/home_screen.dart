@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:taskify/features/search/views/custom_search_deligate.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:taskify/features/todo/controllers/todo_controller.dart';
 import 'package:taskify/features/todo/models/todo.dart';
-import '../../../widgets/add_todo_alert_dialog_content.dart';
+import '../../../widgets/loading_widget.dart';
 import '../../../widgets/my_custom_app_bar.dart';
 import '../../../widgets/my_fab.dart';
 import '../../../widgets/no_task.dart';
@@ -19,8 +19,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    var todoController = Provider.of<TodoController>(context, listen: false);
-    todoController.fetchTodos();
+    Provider.of<TodoController>(context, listen: false).fetchTodos();
     super.initState();
   }
 
@@ -37,11 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
           slivers: <Widget>[
             MyCustomAppBar(todoProvider: todoProvider),
             todoProvider.isLoading
-                ? const SliverToBoxAdapter(
-                    child: Padding(
-                    padding: EdgeInsets.only(top: 80.0),
-                    child: Center(child: Text('Loading...')),
-                  ))
+                ? const LoadingWidget()
                 : todoProvider.todoCount != 0
                     ? SliverList(
                         delegate: SliverChildListDelegate(
