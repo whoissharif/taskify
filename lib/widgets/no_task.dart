@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class NoTask extends StatelessWidget {
   const NoTask({
@@ -7,16 +8,27 @@ class NoTask extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SliverToBoxAdapter(
+    return SliverToBoxAdapter(
       child: Padding(
-        padding: EdgeInsets.only(top: 80.0),
+        padding: const EdgeInsets.only(top: 120.0),
         child: Center(
-          child: Text(
-            'No Task Added Yet',
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 25,
-            ),
+          child: Column(
+            children: [
+              SvgPicture.asset(
+                'assets/images/no data.svg',
+                height: 120,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              const Text(
+                'No Task Added Yet',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 18,
+                ),
+              ),
+            ],
           ),
         ),
       ),

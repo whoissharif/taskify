@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../features/search/views/custom_search_deligate.dart';
+import '../features/search/custom_search_deligate.dart';
 import '../features/todo/controllers/todo_controller.dart';
 
 class MyCustomAppBar extends StatelessWidget {

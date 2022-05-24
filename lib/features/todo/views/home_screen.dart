@@ -29,8 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       floatingActionButton: MyFab(todoProvider: todoProvider),
       body: Container(
-        decoration: BoxDecoration(
-          color: Colors.grey[50],
+        decoration: const BoxDecoration(
+          color: Colors.white,
         ),
         child: CustomScrollView(
           slivers: <Widget>[
