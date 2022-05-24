@@ -10,11 +10,9 @@ class TodoTile extends StatelessWidget {
   const TodoTile({
     Key? key,
     required this.todo,
-    required this.index,
   }) : super(key: key);
 
   final Todo todo;
-  final int index;
 
   @override
   Widget build(BuildContext context) {

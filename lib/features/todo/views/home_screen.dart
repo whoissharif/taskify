@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:taskify/features/search/views/custom_search_deligate.dart';
 import 'package:taskify/features/todo/controllers/todo_controller.dart';
 import 'package:taskify/features/todo/models/todo.dart';
 import 'package:taskify/utils/colors.dart';
@@ -49,6 +50,18 @@ class _HomeScreenState extends State<HomeScreen> {
               floating: true,
               pinned: true,
               backgroundColor: Colors.white,
+              leading: IconButton(
+                onPressed: () {
+                  showSearch(
+                      context: context,
+                      delegate: CustomSearchDelegate(todoProvider));
+                },
+                icon: const Icon(
+                  Icons.search,
+                  color: Colors.red,
+                  size: 30,
+                ),
+              ),
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
                 title: const Text(
@@ -91,7 +104,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               Todo todo = todoProvider.todos[index];
                               return TodoTile(
                                 todo: todo,
-                                index: index,
                               );
                             },
                           ),

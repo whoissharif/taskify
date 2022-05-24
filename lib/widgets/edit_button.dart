@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../features/todo/controllers/todo_controller.dart';
 import '../features/todo/models/todo.dart';
+import '../features/todo/views/home_screen.dart';
 import '../utils/colors.dart';
 
 class EditButton extends StatelessWidget {
@@ -33,7 +34,9 @@ class EditButton extends StatelessWidget {
           ));
           todoController.titleController.clear();
 
-          Navigator.of(context).pop();
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => const HomeScreen()),
+              (route) => false);
         },
         style: ElevatedButton.styleFrom(
           primary: TaskifyColors.charcoal,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../features/todo/controllers/todo_controller.dart';
 import '../features/todo/models/todo.dart';
+import '../features/todo/views/home_screen.dart';
 
 class DeleteButton extends StatelessWidget {
   const DeleteButton({
@@ -20,7 +21,9 @@ class DeleteButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           todoController.deleteTodo(todo.id);
-          Navigator.of(context).pop();
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => const HomeScreen()),
+              (route) => false);
         },
         child: const Padding(
           padding: EdgeInsets.symmetric(vertical: 12.0),
@@ -30,4 +33,3 @@ class DeleteButton extends StatelessWidget {
     );
   }
 }
-
