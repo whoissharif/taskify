@@ -42,7 +42,7 @@ class _DetailScreenState extends State<DetailScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            TodoTextField(todoController: todoController),
+            TodoTextField(todoController: todoController,autoFocus: false,),
             const SizedBox(
               height: 30,
             ),

@@ -15,12 +15,15 @@ class AddTodoAlertDialogContent extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        TodoTextField(todoController: todoProvider),
+        TodoTextField(
+          todoController: todoProvider,
+          autoFocus: true,
+        ),
         const SizedBox(
           height: 10,
         ),
         ColorSelectorSection(todoController: todoProvider),
-         const SizedBox(
+        const SizedBox(
           height: 20,
         ),
         SizedBox(

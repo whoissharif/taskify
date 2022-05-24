@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:taskify/features/todo/controllers/todo_controller.dart';
 import 'package:taskify/features/todo/models/todo.dart';
+import 'package:taskify/utils/colors.dart';
 import '../../../widgets/add_todo_alert_dialog_content.dart';
+import '../../../widgets/no_task.dart';
 import '../../../widgets/todo_tile.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -74,20 +76,28 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               expandedHeight: 200,
             ),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                List.generate(
-                  todoProvider.todoCount,
-                  (index) {
-                    Todo todo = todoProvider.todos[index];
-                    return TodoTile(
-                      todo: todo,
-                      index: index,
-                    );
-                  },
-                ),
-              ),
-            ),
+            todoProvider.isLoading
+                ? const SliverToBoxAdapter(
+                    child: Padding(
+                    padding: EdgeInsets.only(top: 80.0),
+                    child: Center(child: Text('Loading...')),
+                  ))
+                : todoProvider.todoCount != 0
+                    ? SliverList(
+                        delegate: SliverChildListDelegate(
+                          List.generate(
+                            todoProvider.todoCount,
+                            (index) {
+                              Todo todo = todoProvider.todos[index];
+                              return TodoTile(
+                                todo: todo,
+                                index: index,
+                              );
+                            },
+                          ),
+                        ),
+                      )
+                    : const NoTask(),
           ],
         ),
       ),

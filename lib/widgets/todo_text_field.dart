@@ -6,15 +6,18 @@ class TodoTextField extends StatelessWidget {
   const TodoTextField({
     Key? key,
     required this.todoController,
+    required this.autoFocus,
   }) : super(key: key);
 
   final TodoController todoController;
+  final bool autoFocus;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: todoController.titleController,
       maxLines: 3,
+      autofocus: autoFocus,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.all(10),
         filled: true,
