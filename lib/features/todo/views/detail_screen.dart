@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:taskify/features/todo/controllers/todo_controller.dart';
+import 'package:taskify/helpers/responsive_widget.dart';
 import 'package:taskify/widgets/color_selector_section.dart';
 import '../../../widgets/delete_button.dart';
 import '../../../widgets/edit_button.dart';
@@ -37,25 +38,80 @@ class _DetailScreenState extends State<DetailScreen> {
         title: const Text('Edit'),
         backgroundColor: todoController.todoColors[widget.todo.colorIndex],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TodoTextField(todoController: todoController,autoFocus: false,),
-            const SizedBox(
-              height: 30,
+      body: ResponsiveWidget(
+        mobile: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TodoTextField(
+                todoController: todoController,
+                autoFocus: false,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              ColorSelectorSection(todoController: todoController),
+              const SizedBox(
+                height: 30,
+              ),
+              EditButton(todoController: todoController, todo: widget.todo),
+              const SizedBox(
+                height: 20,
+              ),
+              DeleteButton(todoController: todoController, todo: widget.todo),
+            ],
+          ),
+        ),
+        tab: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: TodoTextField(
+                        todoController: todoController,
+                        autoFocus: false,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Expanded(
+                      child: ColorSelectorSection(
+                        todoController: todoController,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: EditButton(
+                        todoController: todoController,
+                        todo: widget.todo,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Expanded(
+                      child: DeleteButton(
+                        todoController: todoController,
+                        todo: widget.todo,
+                      ),
+                    ),
+                  ],
+                )
+              ],
             ),
-            ColorSelectorSection(todoController: todoController),
-            const SizedBox(
-              height: 30,
-            ),
-            EditButton(todoController: todoController, todo: widget.todo),
-            const SizedBox(
-              height: 20,
-            ),
-            DeleteButton(todoController: todoController, todo: widget.todo),
-          ],
+          ),
         ),
       ),
     );

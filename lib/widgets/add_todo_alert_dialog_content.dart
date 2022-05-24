@@ -12,36 +12,38 @@ class AddTodoAlertDialogContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var todoProvider = Provider.of<TodoController>(context);
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        TodoTextField(
-          todoController: todoProvider,
-          autoFocus: true,
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        ColorSelectorSection(todoController: todoProvider),
-        const SizedBox(
-          height: 20,
-        ),
-        SizedBox(
-          width: double.infinity,
-          child: ElevatedButton(
-            onPressed: () {
-              todoProvider.titleController.text.isEmpty
-                  ? todoProvider.setTodoTitleValidate(true)
-                  : todoProvider.setTodoTitleValidate(false);
-              if (todoProvider.todoTitleValidate) return;
-              todoProvider.addTodo(todoProvider.titleController.text);
-              todoProvider.titleController.clear();
-              Navigator.of(context).pop();
-            },
-            child: const Text('Add Todo'),
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TodoTextField(
+            todoController: todoProvider,
+            autoFocus: true,
           ),
-        ),
-      ],
+          const SizedBox(
+            height: 10,
+          ),
+          ColorSelectorSection(todoController: todoProvider),
+          const SizedBox(
+            height: 20,
+          ),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {
+                todoProvider.titleController.text.isEmpty
+                    ? todoProvider.setTodoTitleValidate(true)
+                    : todoProvider.setTodoTitleValidate(false);
+                if (todoProvider.todoTitleValidate) return;
+                todoProvider.addTodo(todoProvider.titleController.text);
+                todoProvider.titleController.clear();
+                Navigator.of(context).pop();
+              },
+              child: const Text('Add Todo'),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

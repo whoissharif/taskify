@@ -90,10 +90,13 @@ class TodoTile extends StatelessWidget {
                   ),
                   Text(
                     todo.title,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                       fontSize: 16,
+                      
                     ),
                   ),
                   const SizedBox(
