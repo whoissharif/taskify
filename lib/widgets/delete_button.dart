@@ -6,11 +6,11 @@ import '../features/todo/models/todo.dart';
 class DeleteButton extends StatelessWidget {
   const DeleteButton({
     Key? key,
-    required this.todoData,
+    required this.todoController,
     required this.todo,
   }) : super(key: key);
 
-  final TodoController todoData;
+  final TodoController todoController;
   final Todo todo;
 
   @override
@@ -19,7 +19,7 @@ class DeleteButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
-          todoData.deleteTodo(todo.id);
+          todoController.deleteTodo(todo.id);
           Navigator.of(context).pop();
         },
         child: const Padding(

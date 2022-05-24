@@ -15,16 +15,18 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    Provider.of<TodoController>(context, listen: false).fetchTodos();
+    var todoController = Provider.of<TodoController>(context, listen: false);
+    todoController.fetchTodos();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    var todoProvider = Provider.of<TodoController>(context,listen: true);
+    var todoProvider = Provider.of<TodoController>(context, listen: true);
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          todoProvider.reset();
           showDialog(
               context: context,
               builder: (context) {

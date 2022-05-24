@@ -9,18 +9,28 @@ class TodoController extends ChangeNotifier {
   bool _isLoading = false;
   TextEditingController titleController = TextEditingController();
   int _selectedColorIndex = 0;
+  bool _todoTitleValidate = false;
 
   List<Todo> get todos => [..._todos];
-
   bool get isLoading => _isLoading;
-
   int get todoCount => _todos.length;
-
   int get selectedColorIndex => _selectedColorIndex;
+  bool get todoTitleValidate => _todoTitleValidate;
 
   void setSelectedColorIndex(int val) {
     _selectedColorIndex = val;
     notifyListeners();
+  }
+
+  void setTodoTitleValidate(bool val) {
+    _todoTitleValidate = val;
+    notifyListeners();
+  }
+
+  void reset() {
+    setSelectedColorIndex(0);
+    titleController.text = '';
+    setTodoTitleValidate(false);
   }
 
   fetchTodos() async {

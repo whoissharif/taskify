@@ -6,11 +6,11 @@ import '../utils/colors.dart';
 class EditButton extends StatelessWidget {
   const EditButton({
     Key? key,
-    required this.todoData,
+    required this.todoController,
     required this.todo,
   }) : super(key: key);
 
-  final TodoController todoData;
+  final TodoController todoController;
   final Todo todo;
 
   @override
@@ -19,14 +19,20 @@ class EditButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
-          todoData.updateTodo(Todo(
+          todoController.titleController.text.isEmpty
+              ? todoController.setTodoTitleValidate(true)
+              : todoController.setTodoTitleValidate(false);
+          if (todoController.todoTitleValidate) return;
+          todoController.updateTodo(Todo(
             id: todo.id,
-            title: todoData.titleController.text,
+            title: todoController.titleController.text,
             //we can keep the previous date here but I am updating the date as the todo edited
             date: DateTime.now(),
             isDone: todo.isDone,
-            colorIndex: todoData.selectedColorIndex,
+            colorIndex: todoController.selectedColorIndex,
           ));
+          todoController.titleController.clear();
+
           Navigator.of(context).pop();
         },
         style: ElevatedButton.styleFrom(

@@ -5,29 +5,27 @@ import '../features/todo/controllers/todo_controller.dart';
 class ColorSelectorSection extends StatelessWidget {
   const ColorSelectorSection({
     Key? key,
-    required this.todoData,
-    required this.selectedColorIndex,
+    required this.todoController,
   }) : super(key: key);
 
-  final TodoController todoData;
-  final selectedColorIndex;
+  final TodoController todoController;
 
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      children: todoData.todoColors.map((e) {
-        var index = todoData.todoColors.indexOf(e);
+      children: todoController.todoColors.map((e) {
+        var index = todoController.todoColors.indexOf(e);
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3),
           child: GestureDetector(
             onTap: () {
-              todoData.setSelectedColorIndex(index);
+              todoController.setSelectedColorIndex(index);
             },
             child: Container(
               height: 30,
               width: 30,
               child: Center(
-                child: selectedColorIndex == index
+                child: todoController.selectedColorIndex == index
                     ? const Icon(
                         Icons.done,
                         size: 15,
@@ -37,7 +35,7 @@ class ColorSelectorSection extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: todoData.todoColors[index],
+                color: todoController.todoColors[index],
               ),
             ),
           ),

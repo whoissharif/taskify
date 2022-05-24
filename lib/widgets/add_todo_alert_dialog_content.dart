@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:taskify/widgets/color_selector_section.dart';
+import 'package:taskify/widgets/todo_text_field.dart';
 import '../features/todo/controllers/todo_controller.dart';
 
 class AddTodoAlertDialogContent extends StatelessWidget {
@@ -14,47 +15,28 @@ class AddTodoAlertDialogContent extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        TextField(
-          autofocus: true,
-          controller: todoProvider.titleController,
+        TodoTextField(todoController: todoProvider),
+        const SizedBox(
+          height: 10,
         ),
-        Wrap(
-          children: todoProvider.todoColors.map((e) {
-            var index = todoProvider.todoColors.indexOf(e);
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3),
-              child: GestureDetector(
-                onTap: () {
-                  todoProvider.setSelectedColorIndex(index);
-                },
-                child: Container(
-                  height: 30,
-                  width: 30,
-                  child: Center(
-                    child: todoProvider.selectedColorIndex == index
-                        ? const Icon(
-                            Icons.done,
-                            size: 15,
-                            color: Colors.white,
-                          )
-                        : null,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: todoProvider.todoColors[index],
-                  ),
-                ),
-              ),
-            );
-          }).toList(),
+        ColorSelectorSection(todoController: todoProvider),
+         const SizedBox(
+          height: 20,
         ),
-        ElevatedButton(
-          onPressed: () {
-            todoProvider.addTodo(todoProvider.titleController.text);
-            todoProvider.titleController.clear();
-            Navigator.of(context).pop();
-          },
-          child: Text('Add Todo'),
+        SizedBox(
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: () {
+              todoProvider.titleController.text.isEmpty
+                  ? todoProvider.setTodoTitleValidate(true)
+                  : todoProvider.setTodoTitleValidate(false);
+              if (todoProvider.todoTitleValidate) return;
+              todoProvider.addTodo(todoProvider.titleController.text);
+              todoProvider.titleController.clear();
+              Navigator.of(context).pop();
+            },
+            child: const Text('Add Todo'),
+          ),
         ),
       ],
     );
