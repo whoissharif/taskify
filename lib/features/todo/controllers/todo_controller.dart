@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taskify/helpers/database_helper.dart';
-
+import '../../../helpers/database_helper.dart';
 import '../models/todo.dart';
 
 class TodoController extends ChangeNotifier {

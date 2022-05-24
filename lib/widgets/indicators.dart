@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taskify/utils/app_colors.dart';
-
+import '../utils/app_colors.dart';
 import '../features/onboarding/controllers/onboarding_controller.dart';
 
 class Indicators extends StatelessWidget {

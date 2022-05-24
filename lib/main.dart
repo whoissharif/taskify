@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:taskify/features/onboarding/controllers/onboarding_controller.dart';
-import 'package:taskify/features/onboarding/views/onboarding_screen.dart';
-import 'package:taskify/features/todo/controllers/todo_controller.dart';
-import 'package:taskify/features/todo/views/home_screen.dart';
-import 'package:taskify/utils/app_strings.dart';
-import 'package:taskify/utils/app_colors.dart';
+import 'features/onboarding/controllers/onboarding_controller.dart';
+import 'features/onboarding/views/onboarding_screen.dart';
+import 'features/todo/controllers/todo_controller.dart';
+import 'features/todo/views/home_screen.dart';
+import 'utils/app_strings.dart';
+import 'utils/app_colors.dart';
 
 int? isviewed;
 void main() async {

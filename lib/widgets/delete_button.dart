@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:taskify/utils/app_strings.dart';
-
+import '../utils/app_strings.dart';
 import '../features/todo/controllers/todo_controller.dart';
 import '../features/todo/models/todo.dart';
 import '../features/todo/views/home_screen.dart';

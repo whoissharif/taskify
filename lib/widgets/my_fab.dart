@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taskify/widgets/add_todo_alert_dialog_content.dart';
-
+import 'add_todo_alert_dialog_content.dart';
 import '../features/todo/controllers/todo_controller.dart';
 
 class MyFab extends StatelessWidget {
@@ -20,6 +19,7 @@ class MyFab extends StatelessWidget {
             context: context,
             builder: (context) {
               return const AlertDialog(
+                title: Center(child: Text('Add a new task')),
                 content: AddTodoAlertDialogContent(),
               );
             });

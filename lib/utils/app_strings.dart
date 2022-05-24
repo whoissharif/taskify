@@ -11,7 +11,7 @@ class AppStrings {
   static const skipButtonText = 'Skip';
   static const noTask = 'No Task Added Yet';
   static const loadingText = 'Loading...';
-  static const addTodoButtonText = 'Add Todo';
+  static const addTodoButtonText = 'Add Task';
 
   static const onboardTitle1 = 'Manage Your Task';
   static const onboardTitle2 = 'Update Task';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
-import 'package:taskify/utils/app_strings.dart';
-import 'package:taskify/widgets/color_selector_section.dart';
-import 'package:taskify/widgets/todo_text_field.dart';
+import '../utils/app_strings.dart';
+import 'color_selector_section.dart';
+import 'todo_text_field.dart';
 import '../features/todo/controllers/todo_controller.dart';
 
 class AddTodoAlertDialogContent extends StatelessWidget {

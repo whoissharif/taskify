@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:taskify/features/todo/controllers/todo_controller.dart';
-import 'package:taskify/helpers/responsive_widget.dart';
-import 'package:taskify/widgets/color_selector_section.dart';
+import '../controllers/todo_controller.dart';
+import '../../../helpers/responsive_widget.dart';
+import '../../../widgets/color_selector_section.dart';
 import '../../../widgets/delete_button.dart';
 import '../../../widgets/edit_button.dart';
 import '../../../widgets/todo_text_field.dart';

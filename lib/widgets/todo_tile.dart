@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:taskify/utils/app_strings.dart';
-import 'package:taskify/utils/app_text_styles.dart';
-import 'package:taskify/widgets/custom_popup_menu_button.dart';
+import '../utils/app_strings.dart';
+import '../utils/app_text_styles.dart';
+import 'custom_popup_menu_button.dart';
 
 import '../features/todo/controllers/todo_controller.dart';
 import '../features/todo/models/todo.dart';

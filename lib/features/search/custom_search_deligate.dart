@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taskify/features/todo/controllers/todo_controller.dart';
-import 'package:taskify/widgets/todo_tile.dart';
+import '../todo/controllers/todo_controller.dart';
+import '../../widgets/todo_tile.dart';
 
 class CustomSearchDelegate extends SearchDelegate {
   final TodoController todoController;

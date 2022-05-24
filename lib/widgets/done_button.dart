@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../features/onboarding/controllers/onboarding_controller.dart';
 import '../features/todo/views/home_screen.dart';
 

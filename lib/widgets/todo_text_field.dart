@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taskify/utils/app_strings.dart';
-import 'package:taskify/utils/app_colors.dart';
+import '../utils/app_strings.dart';
+import '../utils/app_colors.dart';
 
 import '../features/todo/controllers/todo_controller.dart';
 

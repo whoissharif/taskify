@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:taskify/utils/app_assets.dart';
-import 'package:taskify/utils/app_strings.dart';
-import 'package:taskify/utils/app_text_styles.dart';
-
+import '../utils/app_assets.dart';
+import '../utils/app_strings.dart';
+import '../utils/app_text_styles.dart';
 import '../features/search/custom_search_deligate.dart';
 import '../features/todo/controllers/todo_controller.dart';
 

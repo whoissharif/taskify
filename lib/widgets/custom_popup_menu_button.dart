@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
 import '../features/todo/controllers/todo_controller.dart';
 import '../features/todo/models/todo.dart';
 import '../features/todo/views/detail_screen.dart';

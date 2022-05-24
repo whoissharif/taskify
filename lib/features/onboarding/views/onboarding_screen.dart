@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:taskify/features/onboarding/controllers/onboarding_controller.dart';
+import '../controllers/onboarding_controller.dart';
 import '../../../widgets/done_button.dart';
 import '../../../widgets/indicators.dart';
 import '../../../widgets/onboarding_content.dart';

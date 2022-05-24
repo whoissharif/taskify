@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taskify/utils/app_assets.dart';
-import 'package:taskify/utils/app_strings.dart';
+import '../../../utils/app_assets.dart';
+import '../../../utils/app_strings.dart';
 import '../models/onboarding_info.dart';
 
 class OnboardingController extends ChangeNotifier {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:taskify/utils/app_assets.dart';
-import 'package:taskify/utils/app_strings.dart';
+import '../utils/app_assets.dart';
+import '../utils/app_strings.dart';
 
 class NoTask extends StatelessWidget {
   const NoTask({

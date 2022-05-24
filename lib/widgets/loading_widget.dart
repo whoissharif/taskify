@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taskify/utils/app_strings.dart';
+import '../utils/app_strings.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({

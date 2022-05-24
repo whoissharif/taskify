@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../features/todo/controllers/todo_controller.dart';
 
 class ColorSelectorSection extends StatelessWidget {

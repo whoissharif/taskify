@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taskify/utils/app_strings.dart';
-
+import '../utils/app_strings.dart';
 import '../features/todo/views/home_screen.dart';
 
 class SkipButton extends StatelessWidget {

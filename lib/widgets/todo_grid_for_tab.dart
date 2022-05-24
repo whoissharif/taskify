@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taskify/widgets/my_custom_app_bar.dart';
-import 'package:taskify/widgets/todo_grid_tile.dart';
-
+import 'my_custom_app_bar.dart';
+import 'todo_grid_tile.dart';
 import '../features/todo/controllers/todo_controller.dart';
 import 'loading_widget.dart';
 import 'no_task.dart';
