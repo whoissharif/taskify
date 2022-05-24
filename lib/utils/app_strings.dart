@@ -12,10 +12,18 @@ class AppStrings {
   static const noTask = 'No Task Added Yet';
   static const loadingText = 'Loading...';
   static const addTodoButtonText = 'Add Todo';
+
   static const onboardTitle1 = 'Manage Your Task';
   static const onboardTitle2 = 'Update Task';
   static const onboardTitle3 = 'Search Task';
-  static const onboardDescription1 = 'Now you can manage your daily tasks easily.';
+  static const onboardDescription1 =
+      'Now you can manage your daily tasks easily.';
   static const onboardDescription2 = 'Editing and updating is easier.';
   static const onboardDescription3 = 'Find task easily with seaching';
+
+  //Toast msg
+  static const taskEditMsg = 'Task Edited Successfully';
+  static const taskDeleteMsg = 'Task Deleted';
+  static const taskAddMsg = 'Task Added Successfully';
+  static const taskUpdate = 'Task Updated';
 }

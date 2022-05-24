@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:taskify/utils/app_strings.dart';
 import 'package:taskify/utils/app_text_styles.dart';
+import 'package:taskify/widgets/custom_popup_menu_button.dart';
 
 import '../features/todo/controllers/todo_controller.dart';
 import '../features/todo/models/todo.dart';
@@ -106,48 +108,8 @@ class TodoTile extends StatelessWidget {
             const Spacer(),
             Expanded(
               flex: 1,
-              child: PopupMenuButton(
-                  icon: const Icon(
-                    Icons.more_vert,
-                    color: Colors.white,
-                  ),
-                  itemBuilder: (_) => <PopupMenuItem<String>>[
-                        PopupMenuItem<String>(
-                            child: Text(
-                              todo.isDone
-                                  ? AppStrings.markAsUnDone
-                                  : AppStrings.markAsDone,
-                            ),
-                            value: 'done'),
-                        const PopupMenuItem<String>(
-                            child: Text(
-                              AppStrings.deleteButtonText,
-                            ),
-                            value: 'delete'),
-                        const PopupMenuItem(
-                          child: Text(AppStrings.editButtonText),
-                          value: 'edit',
-                        ),
-                      ],
-                  onSelected: (i) {
-                    switch (i) {
-                      case 'done':
-                        todoProvider.toggleDone(todo);
-                        break;
-                      case 'delete':
-                        todoProvider.deleteTodo(todo.id);
-                        break;
-                      case 'edit':
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (_) {
-                              return DetailScreen(todo: todo);
-                            },
-                          ),
-                        );
-                        break;
-                    }
-                  }),
+              child:
+                  CustomPopupMenuButton(todo: todo, todoProvider: todoProvider),
             ),
           ],
         ),

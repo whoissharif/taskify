@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:taskify/utils/app_strings.dart';
 import 'package:taskify/widgets/color_selector_section.dart';
@@ -38,6 +39,13 @@ class AddTodoAlertDialogContent extends StatelessWidget {
                 if (todoProvider.todoTitleValidate) return;
                 todoProvider.addTodo(todoProvider.titleController.text);
                 todoProvider.titleController.clear();
+                Fluttertoast.showToast(
+                    msg: AppStrings.taskAddMsg,
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    fontSize: 16.0);
                 Navigator.of(context).pop();
               },
               child: const Text(AppStrings.addTodoButtonText),

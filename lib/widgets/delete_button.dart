@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:taskify/utils/app_strings.dart';
 
 import '../features/todo/controllers/todo_controller.dart';
@@ -22,6 +23,13 @@ class DeleteButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           todoController.deleteTodo(todo.id);
+          Fluttertoast.showToast(
+              msg: AppStrings.taskDeleteMsg,
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              backgroundColor: Colors.red,
+              textColor: Colors.white,
+              fontSize: 16.0);
           Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(builder: (context) => const HomeScreen()),
               (route) => false);
