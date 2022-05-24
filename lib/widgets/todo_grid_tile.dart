@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:taskify/utils/app_strings.dart';
 
 import '../features/todo/controllers/todo_controller.dart';
 import '../features/todo/views/detail_screen.dart';
+import '../utils/app_text_styles.dart';
 
 class TodoGridTile extends StatelessWidget {
   const TodoGridTile({
@@ -44,7 +46,7 @@ class TodoGridTile extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12),
                                 color: Colors.white),
                             child: Text(
-                              'Completed',
+                              AppStrings.taskCompleted,
                               style: TextStyle(
                                 color: todoProvider.todoColors[todo.colorIndex],
                                 fontSize: 12,
@@ -52,11 +54,8 @@ class TodoGridTile extends StatelessWidget {
                             ),
                           )
                         : const Text(
-                            'Ongoing',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                            ),
+                            AppStrings.taskOngoing,
+                            style: AppTextStyle.subtitle1,
                           ),
                     const Spacer(),
                     PopupMenuButton(
@@ -68,17 +67,17 @@ class TodoGridTile extends StatelessWidget {
                               PopupMenuItem<String>(
                                   child: Text(
                                     todo.isDone
-                                        ? "Mark as Undone"
-                                        : "Mark as done",
+                                        ? AppStrings.markAsUnDone
+                                        : AppStrings.markAsDone,
                                   ),
                                   value: 'done'),
                               const PopupMenuItem<String>(
                                   child: Text(
-                                    "Delete",
+                                    AppStrings.deleteButtonText,
                                   ),
                                   value: 'delete'),
                               const PopupMenuItem(
-                                child: Text('Edit'),
+                                child: Text(AppStrings.editButtonText),
                                 value: 'edit',
                               ),
                             ],
@@ -116,11 +115,7 @@ class TodoGridTile extends StatelessWidget {
                       todo.title,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
+                      style: AppTextStyle.title,
                     ),
                   ),
                 ),
@@ -129,11 +124,8 @@ class TodoGridTile extends StatelessWidget {
                 ),
                 Center(
                   child: Text(
-                    DateFormat('dd/MM/yyyy hh:mm a').format(todo.date),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                    ),
+                    DateFormat(AppStrings.appDateFormat).format(todo.date),
+                    style: AppTextStyle.subtitle1,
                   ),
                 )
               ],

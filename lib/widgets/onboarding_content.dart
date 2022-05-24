@@ -24,7 +24,7 @@ class OnboardingContent extends StatelessWidget {
             controller.onboardingPages[index].title,
             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
           ),
-          SvgPicture.asset(controller.onboardingPages[index].imageAsset),
+          SvgPicture.asset(controller.onboardingPages[index].imageAsset,height: 400,),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 64.0),
             child: Text(

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:taskify/utils/app_strings.dart';
 import '../features/todo/controllers/todo_controller.dart';
 import '../features/todo/models/todo.dart';
 import '../features/todo/views/home_screen.dart';
-import '../utils/colors.dart';
+import '../utils/app_colors.dart';
 
 class EditButton extends StatelessWidget {
   const EditButton({
@@ -39,11 +40,11 @@ class EditButton extends StatelessWidget {
               (route) => false);
         },
         style: ElevatedButton.styleFrom(
-          primary: TaskifyColors.charcoal,
+          primary: AppColors.charcoal,
         ),
         child: const Padding(
           padding: EdgeInsets.symmetric(vertical: 12.0),
-          child: Text('Edit'),
+          child: Text(AppStrings.editButtonText),
         ),
       ),
     );

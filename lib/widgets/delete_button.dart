@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskify/utils/app_strings.dart';
 
 import '../features/todo/controllers/todo_controller.dart';
 import '../features/todo/models/todo.dart';
@@ -27,7 +28,7 @@ class DeleteButton extends StatelessWidget {
         },
         child: const Padding(
           padding: EdgeInsets.symmetric(vertical: 12.0),
-          child: Text('Delete'),
+          child: Text(AppStrings.deleteButtonText),
         ),
       ),
     );

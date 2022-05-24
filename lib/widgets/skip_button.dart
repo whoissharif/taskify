@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskify/utils/app_strings.dart';
 
 import '../features/todo/views/home_screen.dart';
 
@@ -15,7 +16,7 @@ class SkipButton extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const HomeScreen()),
             (route) => false);
       },
-      child: const Text('Skip'),
+      child: const Text(AppStrings.skipButtonText),
     );
   }
 }

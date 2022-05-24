@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taskify/utils/app_assets.dart';
+import 'package:taskify/utils/app_strings.dart';
 
 class NoTask extends StatelessWidget {
   const NoTask({
@@ -15,14 +17,14 @@ class NoTask extends StatelessWidget {
           child: Column(
             children: [
               SvgPicture.asset(
-                'assets/images/no data.svg',
+                AppAssets.noData,
                 height: 120,
               ),
               const SizedBox(
                 height: 30,
               ),
               const Text(
-                'No Task Added Yet',
+                AppStrings.noTask,
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 18,

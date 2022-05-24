@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskify/utils/app_colors.dart';
 
 import '../features/onboarding/controllers/onboarding_controller.dart';
 
@@ -21,7 +22,7 @@ class Indicators extends StatelessWidget {
           height: 12,
           decoration: BoxDecoration(
             color: controller.selectedPageIndex == index
-                ? Colors.red
+                ? AppColors.primary
                 : Colors.grey,
             shape: BoxShape.circle,
           ),

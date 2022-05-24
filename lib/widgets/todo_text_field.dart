@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:taskify/utils/app_strings.dart';
+import 'package:taskify/utils/app_colors.dart';
 
 import '../features/todo/controllers/todo_controller.dart';
 
@@ -21,8 +23,9 @@ class TodoTextField extends StatelessWidget {
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.all(10),
         filled: true,
-        errorText:
-            todoController.todoTitleValidate ? 'Field can\'t be empty' : null,
+        errorText: todoController.todoTitleValidate
+            ? AppStrings.textFieldErrorMsg
+            : null,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(
@@ -30,7 +33,7 @@ class TodoTextField extends StatelessWidget {
             style: BorderStyle.none,
           ),
         ),
-        fillColor: const Color.fromARGB(255, 217, 232, 240),
+        fillColor: AppColors.textFieldFillColor,
       ),
     );
   }

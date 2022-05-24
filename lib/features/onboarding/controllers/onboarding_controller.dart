@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:taskify/utils/app_assets.dart';
+import 'package:taskify/utils/app_strings.dart';
 import '../models/onboarding_info.dart';
 
 class OnboardingController extends ChangeNotifier {
@@ -13,11 +15,11 @@ class OnboardingController extends ChangeNotifier {
   }
 
   List<OnboardingInfo> onboardingPages = [
-    OnboardingInfo('assets/images/todolist.svg', 'Manage Your Task',
-        'Now you can manage your daily tasks easily.'),
-    OnboardingInfo('assets/images/checklist.svg', 'Update Task',
-        'Editing and updating is easier.'),
-    OnboardingInfo('assets/images/search.svg', 'Search Task',
-        'Find task easily with seaching')
+    OnboardingInfo(AppAssets.onboardingImage1, AppStrings.onboardTitle1,
+        AppStrings.onboardDescription1),
+    OnboardingInfo(AppAssets.onboardingImage2, AppStrings.onboardTitle2,
+        AppStrings.onboardDescription2),
+    OnboardingInfo(AppAssets.onboardingImage3, AppStrings.onboardTitle3,
+        AppStrings.onboardDescription3)
   ];
 }

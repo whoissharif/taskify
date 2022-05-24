@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:taskify/utils/app_strings.dart';
+import 'package:taskify/utils/app_text_styles.dart';
 
 import '../features/todo/controllers/todo_controller.dart';
 import '../features/todo/models/todo.dart';
@@ -65,7 +67,7 @@ class TodoTile extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(12),
                                   color: Colors.white),
                               child: Text(
-                                'Completed',
+                                AppStrings.taskCompleted,
                                 style: TextStyle(
                                   color:
                                       todoProvider.todoColors[todo.colorIndex],
@@ -74,11 +76,8 @@ class TodoTile extends StatelessWidget {
                               ),
                             )
                           : const Text(
-                              'Ongoing',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                              ),
+                              AppStrings.taskOngoing,
+                              style: AppTextStyle.subtitle1,
                             ),
                     ],
                   ),
@@ -92,22 +91,14 @@ class TodoTile extends StatelessWidget {
                     todo.title,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 16,
-                      
-                    ),
+                    style: AppTextStyle.title,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
-                    DateFormat('dd/MM/yyyy hh:mm a').format(todo.date),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                    ),
+                    DateFormat(AppStrings.appDateFormat).format(todo.date),
+                    style: AppTextStyle.subtitle1,
                   )
                 ],
               ),
@@ -123,16 +114,18 @@ class TodoTile extends StatelessWidget {
                   itemBuilder: (_) => <PopupMenuItem<String>>[
                         PopupMenuItem<String>(
                             child: Text(
-                              todo.isDone ? "Mark as Undone" : "Mark as done",
+                              todo.isDone
+                                  ? AppStrings.markAsUnDone
+                                  : AppStrings.markAsDone,
                             ),
                             value: 'done'),
                         const PopupMenuItem<String>(
                             child: Text(
-                              "Delete",
+                              AppStrings.deleteButtonText,
                             ),
                             value: 'delete'),
                         const PopupMenuItem(
-                          child: Text('Edit'),
+                          child: Text(AppStrings.editButtonText),
                           value: 'edit',
                         ),
                       ],

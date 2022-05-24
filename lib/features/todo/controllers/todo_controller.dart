@@ -77,6 +77,9 @@ class TodoController extends ChangeNotifier {
     Colors.purple,
     Colors.blueGrey,
     Colors.orangeAccent,
-    Colors.pink
+    Colors.pink,
+    Colors.cyan,
+    Colors.deepOrangeAccent,
+    Colors.teal,
   ];
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskify/utils/app_strings.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({
@@ -9,8 +10,8 @@ class LoadingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SliverToBoxAdapter(
         child: Padding(
-        padding: EdgeInsets.only(top: 80.0),
-        child: Center(child: Text('Loading...')),
-      ));
+      padding: EdgeInsets.only(top: 80.0),
+      child: Center(child: Text(AppStrings.loadingText)),
+    ));
   }
 }

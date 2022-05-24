@@ -6,7 +6,8 @@ import 'package:taskify/features/onboarding/controllers/onboarding_controller.da
 import 'package:taskify/features/onboarding/views/onboarding_screen.dart';
 import 'package:taskify/features/todo/controllers/todo_controller.dart';
 import 'package:taskify/features/todo/views/home_screen.dart';
-import 'package:taskify/utils/colors.dart';
+import 'package:taskify/utils/app_strings.dart';
+import 'package:taskify/utils/app_colors.dart';
 
 int? isviewed;
 void main() async {
@@ -31,11 +32,11 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Taskify',
+        title: AppStrings.appName,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: TaskifyColors.primary,
-          textTheme: GoogleFonts.poppinsTextTheme(
+          primarySwatch: AppColors.primary,
+          textTheme: GoogleFonts.quicksandTextTheme(
             Theme.of(context).textTheme,
           ),
         ),
