@@ -6,6 +6,8 @@
       <img src="assets/images/1024.png" height=70 align="left"> 
     <p>A task management app with Sqflite. Manage your daily tasks with ease. Updating and editing tasks are even easier. You can search through your task list to find a specific one. 
       </p>
+      <br>
+        <img src="assets/images/cover.jpg"> 
     </td>
   </tr>
 </table>
